@@ -49,7 +49,8 @@ kubectl apply -f configmap-hello-world.yaml
 
 ## Take note that: 
     nodeport-service-hello-world.yaml has the below labels, so make sure before you implement/apply your configmap, you modify it as necessary. 
-
+    See this diagram: https://clouddocs.f5.com/containers/latest/_images/config-map-diagram-quickstart1.png
+    
 ``` 
 apiVersion: v1
 kind: Service

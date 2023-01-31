@@ -123,7 +123,8 @@ To Deploy Hello World:
 kubectl apply -f deployment-hello-world.yaml
 kubectl apply -f nodeport-service-hello-world.yaml
 kubectl apply -f configmap-hello-world.yaml
-
+``` 
+    
 To Delete Hello-World
 
 ``` 

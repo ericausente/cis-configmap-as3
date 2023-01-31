@@ -22,6 +22,7 @@ BIG-IP1: 10.201.10.156 (mgmt) / 172.16.100.156 on Version 16.1.0
 Kubernetes Master Node: 10.201.10.151 on Ubuntu 18.04 LTS and kubernetes version v1.25.4; containerd://1.5.9
 f5-appsvcs 	3.40.0
 ```
+    
 git clone  ____________________________
 
 ``` 
@@ -38,13 +39,16 @@ Take note that it was an old article and the Ingress Resource does not have ingr
 We are now to specify the ingress controller that should handle the ingress resource by using the ingressClassName 
 Source of truth in terms of parameters are now found in here: https://clouddocs.f5.com/containers/latest/userguide/ingress.html
 
-Now deploy the hello-world app: 
+    
+To Deploy Hello World: 
 ``` 
-kubectl create -f deployment-hello-world.yaml
-kubectl create -f nodeport-service-hello-world.yaml
+kubectl apply -f deployment-hello-world.yaml
+kubectl apply -f nodeport-service-hello-world.yaml
+kubectl apply -f configmap-hello-world.yaml
 ``` 
 
-nodeport-service-hello-world.yaml has the below labels, so make sure before you implement/apply your configmap, you modify it as necessary. 
+## Take note that: 
+    nodeport-service-hello-world.yaml has the below labels, so make sure before you implement/apply your configmap, you modify it as necessary. 
 
 ``` 
 apiVersion: v1
@@ -66,7 +70,6 @@ spec:
   type: NodePort
   selector:
     app: f5-hello-world-web
-
 ``` 
 
 
@@ -117,15 +120,9 @@ data:
             }
         }
     }
+```
 
-To Deploy Hello World: 
-``` 
-kubectl apply -f deployment-hello-world.yaml
-kubectl apply -f nodeport-service-hello-world.yaml
-kubectl apply -f configmap-hello-world.yaml
-``` 
-    
-To Delete Hello-World
+To Delete Hello-World: 
 
 ``` 
 kubectl delete -f configmap-hello-world.yaml

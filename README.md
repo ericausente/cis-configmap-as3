@@ -47,9 +47,6 @@ kubectl create -f nodeport-service-hello-world.yaml
 nodeport-service-hello-world.yaml has the below labels, so make sure before you implement/apply your configmap, you modify it as necessary. 
 
 ``` 
-
-
-``` 
 apiVersion: v1
 kind: Service
 metadata:
@@ -121,18 +118,19 @@ data:
         }
     }
 
+To Deploy Hello World: 
 ``` 
-
+kubectl apply -f deployment-hello-world.yaml
+kubectl apply -f nodeport-service-hello-world.yaml
 kubectl apply -f configmap-hello-world.yaml
 
 To Delete Hello-World
+
 ``` 
-kubectl delete -f ingress-hello-world.yaml
+kubectl delete -f configmap-hello-world.yaml
 kubectl delete -f nodeport-service-hello-world.yaml
 kubectl delete -f deployment-hello-world.yaml
 ``` 
-
-
 
 
 Upon applying the configmap: 
